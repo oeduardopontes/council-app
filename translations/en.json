@@ -1,0 +1,111 @@
+{
+  "app_title": "AI Agent Councils",
+  "app_subtitle": "Select a council to get strategic advice from specialized AI executive teams",
+  "powered_by": "Powered by Claude AI | Built with CrewAI",
+
+  "home": {
+    "title": "AI Agent Councils",
+    "subtitle": "Select a council to get strategic advice from specialized AI executive teams"
+  },
+
+  "council": {
+    "executive": {
+      "title": "Executive Council",
+      "subtitle": "Get strategic advice from your AI executive team",
+      "description": "Get comprehensive business advice from a team of C-suite executives. Perfect for strategic decisions, market analysis, and business planning.",
+      "members": {
+        "ceo": "CEO",
+        "cfo": "CFO",
+        "cto": "CTO",
+        "cmo": "CMO"
+      }
+    }
+  },
+
+  "form": {
+    "question_label": "Your Question",
+    "question_placeholder": "What business decision would you like the council to deliberate on?",
+    "question_hint": "Tip: Press Cmd/Ctrl + Enter to submit quickly",
+    "context_label": "Context (Optional)",
+    "context_add": "Add Context",
+    "context_key_placeholder": "Key (e.g., Budget)",
+    "context_value_placeholder": "Value (e.g., $500K)",
+    "context_remove": "Remove",
+    "agents_label": "Select Executives",
+    "agents_all": "All Executives",
+    "submit_button": "Start Deliberation",
+    "submit_button_loading": "Deliberating...",
+    "submit_button_success": "Deliberation Complete",
+    "results_title": "Council Recommendation",
+    "loading_message": "Council is deliberating... This may take 30-60 seconds",
+    "copy_button": "Copy to Clipboard",
+    "copy_success": "Copied!",
+    "character_count": "characters",
+    "progress_consulting": "Consulting agents...",
+    "progress_waiting": "Waiting for response from: {agent}...",
+    "progress_responded": "✓ {agent} responded"
+  },
+
+  "navigation": {
+    "back_to_councils": "Back to Councils"
+  },
+
+  "errors": {
+    "question_required": "Please enter a question for the council to deliberate on.",
+    "deliberation_error": "An error occurred during deliberation.",
+    "connection_error": "Failed to connect to the council. Please try again.",
+    "agents_load_error": "Failed to load agents. Please refresh the page.",
+    "rate_limit": "Please wait {seconds} seconds before making another request.",
+    "timeout": "The deliberation took too long. Please try again.",
+    "api_config_error": "API configuration error. Please check API keys and settings."
+  },
+
+  "locale": {
+    "language": "Language",
+    "en": "English",
+    "pt": "Português"
+  },
+
+  "agents": {
+    "ceo": {
+      "role": "Chief Executive Officer",
+      "expertise": [
+        "Strategic planning",
+        "Vision setting",
+        "Stakeholder management",
+        "Company culture",
+        "Risk assessment"
+      ]
+    },
+    "cfo": {
+      "role": "Chief Financial Officer",
+      "expertise": [
+        "Financial analysis",
+        "Budget planning",
+        "ROI calculation",
+        "Risk management",
+        "Capital allocation"
+      ]
+    },
+    "cto": {
+      "role": "Chief Technology Officer",
+      "expertise": [
+        "Technology architecture",
+        "Engineering leadership",
+        "Technical feasibility",
+        "Innovation assessment",
+        "System scalability"
+      ]
+    },
+    "cmo": {
+      "role": "Chief Marketing Officer",
+      "expertise": [
+        "Market analysis",
+        "Customer insights",
+        "Brand strategy",
+        "Competitive positioning",
+        "Growth marketing"
+      ]
+    }
+  }
+}

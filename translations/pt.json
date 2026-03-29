@@ -1,0 +1,111 @@
+{
+  "app_title": "Conselhos de Agentes IA",
+  "app_subtitle": "Selecione um conselho para obter consultoria estratégica de equipes executivas especializadas em IA",
+  "powered_by": "Desenvolvido com Claude AI | Construído com CrewAI",
+
+  "home": {
+    "title": "Conselhos de Agentes IA",
+    "subtitle": "Selecione um conselho para obter consultoria estratégica de equipes executivas especializadas em IA"
+  },
+
+  "council": {
+    "executive": {
+      "title": "Conselho Executivo",
+      "subtitle": "Obtenha consultoria estratégica da sua equipe executiva de IA",
+      "description": "Obtenha consultoria empresarial abrangente de uma equipe de executivos C-level. Perfeito para decisões estratégicas, análise de mercado e planejamento empresarial.",
+      "members": {
+        "ceo": "CEO",
+        "cfo": "CFO",
+        "cto": "CTO",
+        "cmo": "CMO"
+      }
+    }
+  },
+
+  "form": {
+    "question_label": "Sua Pergunta",
+    "question_placeholder": "Sobre qual decisão de negócio você gostaria que o conselho deliberasse?",
+    "question_hint": "Dica: Pressione Cmd/Ctrl + Enter para enviar rapidamente",
+    "context_label": "Contexto (Opcional)",
+    "context_add": "Adicionar Contexto",
+    "context_key_placeholder": "Chave (ex: Orçamento)",
+    "context_value_placeholder": "Valor (ex: R$ 500 mil)",
+    "context_remove": "Remover",
+    "agents_label": "Selecionar Executivos",
+    "agents_all": "Todos os Executivos",
+    "submit_button": "Iniciar Deliberação",
+    "submit_button_loading": "Deliberando...",
+    "submit_button_success": "Deliberação Concluída",
+    "results_title": "Recomendação do Conselho",
+    "loading_message": "O conselho está deliberando... Isso pode levar 30-60 segundos",
+    "copy_button": "Copiar para Área de Transferência",
+    "copy_success": "Copiado!",
+    "character_count": "caracteres",
+    "progress_consulting": "Consultando agentes...",
+    "progress_waiting": "Aguardando resposta de: {agent}...",
+    "progress_responded": "✓ {agent} respondeu"
+  },
+
+  "navigation": {
+    "back_to_councils": "Voltar para Conselhos"
+  },
+
+  "errors": {
+    "question_required": "Por favor, insira uma pergunta para o conselho deliberar.",
+    "deliberation_error": "Ocorreu um erro durante a deliberação.",
+    "connection_error": "Falha ao conectar ao conselho. Por favor, tente novamente.",
+    "agents_load_error": "Falha ao carregar agentes. Por favor, atualize a página.",
+    "rate_limit": "Por favor, aguarde {seconds} segundos antes de fazer outra requisição.",
+    "timeout": "A deliberação demorou muito tempo. Por favor, tente novamente.",
+    "api_config_error": "Erro de configuração da API. Por favor, verifique as chaves de API e configurações."
+  },
+
+  "locale": {
+    "language": "Idioma",
+    "en": "English",
+    "pt": "Português"
+  },
+
+  "agents": {
+    "ceo": {
+      "role": "Diretor Executivo",
+      "expertise": [
+        "Planejamento estratégico",
+        "Definição de visão",
+        "Gestão de stakeholders",
+        "Cultura empresarial",
+        "Avaliação de riscos"
+      ]
+    },
+    "cfo": {
+      "role": "Diretor Financeiro",
+      "expertise": [
+        "Análise financeira",
+        "Planejamento orçamentário",
+        "Cálculo de ROI",
+        "Gestão de riscos",
+        "Alocação de capital"
+      ]
+    },
+    "cto": {
+      "role": "Diretor de Tecnologia",
+      "expertise": [
+        "Arquitetura de tecnologia",
+        "Liderança em engenharia",
+        "Viabilidade técnica",
+        "Avaliação de inovação",
+        "Escalabilidade de sistemas"
+      ]
+    },
+    "cmo": {
+      "role": "Diretor de Marketing",
+      "expertise": [
+        "Análise de mercado",
+        "Insights de clientes",
+        "Estratégia de marca",
+        "Posicionamento competitivo",
+        "Marketing de crescimento"
+      ]
+    }
+  }
+}

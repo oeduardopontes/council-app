@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conselho de Agentes IA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏢 Conselho de Agentes IA</h1>
+            <p class="subtitle">Obtenha consultoria estratégica da sua equipe executiva de IA</p>
+        </header>
+
+        <main>
+            <!-- Question Section -->
+            <section class="card">
+                <h2>📝 Sua Pergunta</h2>
+                <textarea
+                    id="question"
+                    placeholder="Sobre qual decisão de negócio você gostaria que o conselho deliberasse?"
+                    rows="4"
+                ></textarea>
+            </section>
+
+            <!-- Context Section -->
+            <section class="card">
+                <h2>📊 Contexto (Opcional)</h2>
+                <div id="context-items"></div>
+                <button class="btn-secondary" onclick="addContextItem()">+ Adicionar Contexto</button>
+            </section>
+
+            <!-- Agent Selection -->
+            <section class="card">
+                <h2>👥 Selecionar Executivos</h2>
+                <div id="agent-selection">
+                    <label class="agent-option">
+                        <input type="checkbox" value="all" id="select-all" onchange="toggleAll()">
+                        <strong>Todos os Executivos</strong>
+                    </label>
+                    <div id="agents-list"></div>
+                </div>
+            </section>
+
+            <!-- Submit Button -->
+            <section class="action-section">
+                <button class="btn-primary" onclick="submitDeliberation()" id="submit-btn">
+                    🚀 Iniciar Deliberação
+                </button>
+            </section>
+
+            <!-- Results Section -->
+            <section class="card" id="results-section" style="display: none;">
+                <h2>💡 Recomendação do Conselho</h2>
+                <div id="results" class="results-content"></div>
+            </section>
+
+            <!-- Loading Indicator -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>O conselho está deliberando... Isso pode levar 30-60 segundos</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Desenvolvido com Claude AI | Construído com CrewAI</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="{{ 'pt-BR' if locale == 'pt' else 'en' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ t('council.executive.title') }} - {{ t('app_title') }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Locale Switcher Styles */
+        .locale-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .locale-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .locale-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .locale-btn.active {
+            background: white;
+            color: #667eea;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding: 0.75rem 1.25rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-4px);
+        }
+
+        .hint {
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        .char-count {
+            text-align: right;
+            font-size: 0.875rem;
+            color: #9ca3af;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .locale-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 0.4rem;
+            }
+
+            .locale-btn {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Locale Switcher -->
+    <div class="locale-switcher">
+        <button class="locale-btn {{ 'active' if locale == 'en' else '' }}" onclick="switchLocale('en')" title="English">
+            🇺🇸 EN
+        </button>
+        <button class="locale-btn {{ 'active' if locale == 'pt' else '' }}" onclick="switchLocale('pt')" title="Português">
+            🇧🇷 PT
+        </button>
+    </div>
+
+    <div class="container">
+        <a href="/" class="back-button">← {{ t('navigation.back_to_councils') }}</a>
+        <header>
+            <h1>👔 {{ t('council.executive.title') }}</h1>
+            <p class="subtitle">{{ t('council.executive.subtitle') }}</p>
+        </header>
+
+        <main>
+            <!-- Question Section -->
+            <section class="card">
+                <h2>📝 {{ t('form.question_label') }}</h2>
+                <textarea
+                    id="question"
+                    placeholder="{{ t('form.question_placeholder') }}"
+                    rows="4"
+                    aria-label="{{ t('form.question_label') }}"
+                ></textarea>
+                <div class="hint">💡 {{ t('form.question_hint') }}</div>
+            </section>
+
+            <!-- Context Section -->
+            <section class="card">
+                <h2>📊 {{ t('form.context_label') }}</h2>
+                <div id="context-items"></div>
+                <button class="btn-secondary" onclick="addContextItem()">+ {{ t('form.context_add') }}</button>
+            </section>
+
+            <!-- Agent Selection -->
+            <section class="card">
+                <h2>👥 {{ t('form.agents_label') }}</h2>
+                <div id="agent-selection">
+                    <label class="agent-option">
+                        <input type="checkbox" value="all" id="select-all" onchange="toggleAll()">
+                        <strong>{{ t('form.agents_all') }}</strong>
+                    </label>
+                    <div id="agents-list"></div>
+                </div>
+            </section>
+
+            <!-- Submit Button -->
+            <section class="action-section">
+                <button class="btn-primary" onclick="submitDeliberation()" id="submit-btn">
+                    🚀 {{ t('form.submit_button') }}
+                </button>
+            </section>
+
+            <!-- Results Section -->
+            <section class="card" id="results-section" style="display: none;">
+                <h2>💡 {{ t('form.results_title') }}</h2>
+                <div id="results" class="results-content"></div>
+            </section>
+
+            <!-- Loading Indicator -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>{{ t('form.loading_message') }}</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>{{ t('powered_by') }}</p>
+        </footer>
+    </div>
+
+    <!-- Translations data for JavaScript -->
+    <script id="translations-data" type="application/json">{{ get_translations(locale) | tojson }}</script>
+    <script src="{{ url_for('static', filename='js/i18n.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

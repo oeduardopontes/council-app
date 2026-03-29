@@ -1,0 +1,379 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.context-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.context-item input {
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.context-item input:first-child {
+    width: 30%;
+}
+
+.context-item input:last-child {
+    width: 70%;
+}
+
+.btn-primary, .btn-secondary, .btn-remove {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 16px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+}
+
+.btn-remove {
+    background: #ff4757;
+    color: white;
+    padding: 8px 16px;
+}
+
+.btn-remove:hover {
+    background: #ff3838;
+}
+
+.agent-option {
+    display: block;
+    padding: 12px;
+    margin-bottom: 8px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.agent-option:hover {
+    background: #e9ecef;
+    border-color: #667eea;
+    transform: translateX(4px);
+}
+
+.agent-option input {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.agent-option input:checked ~ strong {
+    color: #667eea;
+}
+
+.agent-option strong {
+    display: inline;
+    margin-left: 0.5rem;
+}
+
+.agent-option small {
+    color: #666;
+    display: block;
+    margin-left: 2rem;
+    margin-top: 0.25rem;
+}
+
+.action-section {
+    margin: 30px 0;
+}
+
+.results-content {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.loading p {
+    color: white;
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+.spinner {
+    border: 4px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top: 4px solid white;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Progress Bar Styles */
+.progress-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.progress-text {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    width: 0%;
+    transition: width 0.5s ease;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.progress-details {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    margin-top: 12px;
+    min-height: 24px;
+    font-family: 'Courier New', monospace;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    opacity: 0.8;
+}
+
+.error {
+    background: #ff4757;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Focus states for accessibility */
+textarea:focus,
+input:focus,
+button:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Smooth transitions */
+.card,
+.btn-primary,
+.btn-secondary,
+.agent-option {
+    transition: all 0.3s ease;
+}
+
+/* Loading spinner improvements */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.loading p {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .context-item {
+        flex-direction: column;
+    }
+
+    .context-item input:first-child,
+    .context-item input:last-child {
+        width: 100%;
+    }
+
+    .btn-primary {
+        font-size: 1rem;
+        padding: 14px;
+    }
+
+    .agent-option {
+        padding: 10px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .btn-primary,
+    .btn-secondary,
+    .btn-remove,
+    header,
+    footer,
+    .loading {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+    }
+
+    .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
